@@ -1,5 +1,7 @@
 {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title":{"text":"Point chart"},
+  "width":150,"height":300,
     "data": {
       "values": [
         {"x": "C", "y": 2}, 
