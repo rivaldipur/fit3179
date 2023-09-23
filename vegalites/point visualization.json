@@ -1,0 +1,21 @@
+{
+  "title":{"text":"Point chart"},
+    "data": {
+      "values": [
+        {"x": "C", "y": 2}, 
+        {"x": "C", "y": 7}, 
+        {"x": "C", "y": 4},
+        {"x": "D", "y": 1}, 
+        {"x": "D", "y": 2}, 
+        {"x": "D", "y": 6},
+        {"x": "E", "y": 8}, 
+        {"x": "E", "y": 4}, 
+        {"x": "E", "y": 7}
+      ]
+    },
+    "mark": "point",
+    "encoding": {
+      "x": {"field": "x", "type": "nominal"},
+      "y": {"field": "y", "type": "quantitative"}
+    }
+  }
