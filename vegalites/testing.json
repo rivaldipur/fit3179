@@ -1,0 +1,11 @@
+{   
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title":{"text":"Youtubers chart"},
+    "width":400,"height":500,
+    "data": {"url":"https://raw.githubusercontent.com/rivaldipur/fit3179/main/Global%20YouTube%20Statistics.csv"},
+    "mark": "circle",
+    "encoding": {
+      "x": {"field": "Youtuber","type": "nominal", "title":"Youtubers"},
+      "y": {"field": "subscribers", "type": "quantitative"}
+    }
+  }
