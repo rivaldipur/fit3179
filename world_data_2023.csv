@@ -1,5 +1,4 @@
-Country,"Density
-(P/Km2)",Abbreviation,Agricultural Land( %),Land Area(Km2),Armed Forces size,Birth Rate,Fertility Rate,Forested Area (%),GDP in USD,Infant mortality,Life expectancy,Maternal mortality ratio,Official language,Physicians per thousand,Population,Unemployment rate,Urban_population,Latitude,Longitude
+Country,Density (P/Km2),Abbreviation,Agricultural Land( %),Land Area(Km2),Armed Forces size,Birth Rate,Fertility Rate,Forested Area (%),GDP in USD,Infant mortality,Life expectancy,Maternal mortality ratio,Official language,Physicians per thousand,Population,Unemployment rate,Urban_population,Latitude,Longitude
 Afghanistan,60,AF,58.10,652230,323000,32.49,4.47,2.10,19101353833 ,47.9,64.5,638.0,Pashto,0.28,38041754,11.12,9797273,33.93911,67.709953
 Albania,105,AL,43.10,28748,9000,11.78,1.62,28.10,15278077447 ,7.8,78.5,15.0,Albanian,1.2,2854191,12.33,1747593,41.153332,20.168331
 Algeria,18,DZ,17.40,2381741,317000,24.28,3.02,0.80,169988236398 ,20.1,76.7,112.0,Arabic,1.72,43053054,11.70,31510100,28.033886,1.659626
