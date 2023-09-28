@@ -1,0 +1,139 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 600,
+    "title": "GDP vs Life Expectancy",
+    "data": {"url": "https://raw.githubusercontent.com/rivaldipur/fit3179/main/world_data_2023.csv"},
+    "params": [
+        {
+        "name": "Population_Above",
+        "value": 0
+        
+        },
+        {
+        "name": "Continent_selection",
+        "bind": {
+        "input": "select",
+        "options": [
+            null,
+            "North America",
+            "South America",
+            "Europe",
+            "Africa",
+            "Asia",
+            "Australia"
+        ],
+        "labels":[
+            "Show All",
+            "North America",
+            "South America",
+            "Europe",
+            "Africa",
+            "Asia",
+            "Australia"
+        ],
+        "name": "Continent Selection: "
+        }
+        }
+    ],
+    "transform": [
+        {"filter": "datum.Population > 0"},
+        {"filter": "datum.GDP_in_USD > 0"},
+    
+        {"filter": "Continent_selection == null || datum.Continent == Continent_selection"},
+    {
+    },
+    {"calculate": "datum.GDP_in_USD/datum.Population","as": "GDP per Capita"}
+    ],
+    "encoding": {
+        "x": {
+            "field": "Life_expectancy",
+            "type": "quantitative",
+            "title": "Life Expectancy",
+            "axis": {"tickCount": 7},
+            "scale": {"type": "log", "domain": [50, 100]}
+        },
+        "y": {
+            "field": "GDP per Capita",
+            "type": "quantitative",
+            "axis": {"tickCount": 5},
+            "scale": {"type": "log", "domain": [1, 220000]}
+        }
+    },
+    "layer": [
+    {
+    "mark": "circle",
+    "encoding": {
+    "size": {
+        "field": "Population",
+        "type": "quantitative",
+        "scale": {
+            "type": "threshold",
+            "domain": [1000000, 10000000, 50000000, 100000000,
+            500000000, 1000000000],
+            "range": [20, 50, 150, 250, 400, 500, 630]
+        },
+        "legend": {"format": ".1s"}
+    },
+    "color": {
+        "field": "Continent",
+        "type": "nominal",
+        "scale": {
+            "domain": [
+                "North America",
+                "South America",
+                "Europe",
+                "Africa",
+                "Asia",
+                "Australia"
+            ],
+            "range": [
+                "#e41a1c",
+                "#984ea3",
+                "#ff7f00",
+                "#a6cee3",
+                "#377eb8",
+                "#a65628"
+            ]
+        }
+    },
+    "opacity": { "value": 0.6},
+        "tooltip": [
+            {"field": "Country", "type": "nominal"},
+            {"field": "Population", "type": "quantitative", "format": ","},
+            {"field": "GDP_in_USD", "type": "quantitative", "format": ","},
+            {"field": "Life_expectancy", "type": "quantitative", "format": ","},
+            {"field": "GDP per Capita","type": "quantitative","format": ".2f"}
+        ]
+    }
+    },
+        {
+        "mark": {
+            "type": "text",
+            "align": "right",
+            "baseline": "middle",
+            "dx": -12,
+            "fontSize": 11.5,
+            "fontStyle": "italic"
+        },
+        "encoding": {
+        "text": {"field": "Country", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+            "condition": {
+                "test": "datum['Country'] == 'Seychelles' || datum['Country'] == 'United States of America' || datum['Country'] == 'Venezuela' || datum['Country'] == 'New Zealand' || datum['Country'] == 'Monaco' || datum['Country'] =='Singapore' || datum['Country'] == 'Australia'",
+                "value": 1
+            },
+            "value": 0
+        },
+            "tooltip": [
+            {"field": "Country", "type": "nominal"},
+            {"field": "Population", "type": "quantitative", "format": ","},
+            {"field": "GDP_in_USD", "type": "quantitative", "format": ",", "title":"GDP in USD"},
+            {"field": "Life_expectancy", "type": "quantitative", "format": ",", "title":"Life Expectancy"},
+            {"field": "GDP per Capita","type": "quantitative","format": ".2f"}
+            ]
+        }
+        }
+    ]
+}
