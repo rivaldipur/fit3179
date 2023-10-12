@@ -7,6 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <link rel="stylesheet" href="vis2.css">
 
     <script src="vis2.js"></script>
 
@@ -14,10 +15,23 @@
 </head>
 <body>
 
-    <h1 style="text-align: center; color:forestgreen;">Homework Week 10</h1>
+    <h1 style="text-align: center; font-family: 'Segoe UI';">
+        Life Expectancies Around The <span style="color: forestgreen;">World</span>
+    </h1>
 
     <div id="military_map" style="position:relative; top: 50%; left: 15%;"></div>
     <div id="gdp_life" style="position:relative; top: 50%; left: 10%;"></div>
     
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="urban_life">
+        <h3 class="graph_section">Life Expectancy and Urban Population</h3>
+        <div id="life_urban_high" style="position:relative; top: 50%; left: 10%;"></div>
+        <div id="life_urban_low" style="position:relative; top: 50%; left: 10%;"></div>
+    </div>
+    
+
 </body>
 </html>

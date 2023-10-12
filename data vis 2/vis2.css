@@ -1,0 +1,12 @@
+.graph_section {
+    /* Center the content horizontally and vertically */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: sans-serif;
+    padding-bottom: 15px;
+
+}
