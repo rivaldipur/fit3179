@@ -2,13 +2,19 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 800,
     "height": 600,
-    "title": "GDP vs Life Expectancy",
+    "title": {"text":"GDP vs Life Expectancy","fontSize":18},
     "data": {"url": "https://raw.githubusercontent.com/rivaldipur/fit3179/main/world_data_2023.csv"},
     "params": [
         {
         "name": "Population_Above",
-        "value": 0
-        
+        "value": 0,
+        "bind": {
+            "input": "range",
+            "min": 0,
+            "max": 300000000,
+            "step": 1000000,
+            "name": "Minimum Population: "
+        }
         },
         {
         "name": "Continent_selection",
@@ -24,7 +30,7 @@
             "Australia"
         ],
         "labels":[
-            "Show All",
+            "All",
             "North America",
             "South America",
             "Europe",
@@ -32,18 +38,17 @@
             "Asia",
             "Australia"
         ],
-        "name": "Continent Selection: "
+        "name": "Continent: "
         }
         }
     ],
     "transform": [
         {"filter": "datum.Population > 0"},
         {"filter": "datum.GDP_in_USD > 0"},
-    
+        {"filter": "datum.Population > Population_Above"},
         {"filter": "Continent_selection == null || datum.Continent == Continent_selection"},
-    {
-    },
-    {"calculate": "datum.GDP_in_USD/datum.Population","as": "GDP per Capita"}
+    
+    {"calculate": "datum.GDP_in_USD/datum.Population","as": "GDP per Capita (USD)"}
     ],
     "encoding": {
         "x": {
@@ -54,10 +59,10 @@
             "scale": {"type": "log", "domain": [50, 100]}
         },
         "y": {
-            "field": "GDP per Capita",
+            "field": "GDP per Capita (USD)",
             "type": "quantitative",
-            "axis": {"tickCount": 5},
-            "scale": {"type": "log", "domain": [1, 220000]}
+            "axis": {"tickCount": 3},
+            "scale": {"type": "log", "domain": [100, 200000]}
         }
     },
     "layer": [
@@ -97,13 +102,13 @@
             ]
         }
     },
-    "opacity": { "value": 0.6},
+    "opacity": { "value": 0.75},
         "tooltip": [
             {"field": "Country", "type": "nominal"},
             {"field": "Population", "type": "quantitative", "format": ","},
-            {"field": "GDP_in_USD", "type": "quantitative", "format": ","},
-            {"field": "Life_expectancy", "type": "quantitative", "format": ","},
-            {"field": "GDP per Capita","type": "quantitative","format": ".2f"}
+            {"field": "GDP_in_USD", "type": "quantitative", "format": ",", "title":"GDP in USD"},
+            {"field": "Life_expectancy", "type": "quantitative", "format": ",", "title":"Life Expectancy"},
+            {"field": "GDP per Capita (USD)","type": "quantitative","format": ".2f"}
         ]
     }
     },
@@ -121,7 +126,7 @@
         "color": {"value": "black"},
         "opacity": {
             "condition": {
-                "test": "datum['Country'] == 'Seychelles' || datum['Country'] == 'United States of America' || datum['Country'] == 'Venezuela' || datum['Country'] == 'New Zealand' || datum['Country'] == 'Monaco' || datum['Country'] =='Singapore' || datum['Country'] == 'Australia'",
+                "test": "datum['Country'] == 'Seychelles' || datum['Country'] == 'United States of America' || datum['Country'] == 'Venezuela' || datum['Country'] == 'Monaco' || datum['Country'] =='Singapore' || datum['Country'] == 'Australia'",
                 "value": 1
             },
             "value": 0
@@ -129,9 +134,9 @@
             "tooltip": [
             {"field": "Country", "type": "nominal"},
             {"field": "Population", "type": "quantitative", "format": ","},
-            {"field": "GDP_in_USD", "type": "quantitative", "format": ",", "title":"GDP in USD"},
+            {"field": "GDP_in_USD", "type": "quantitative", "format": ",", "title":"GDP (USD)"},
             {"field": "Life_expectancy", "type": "quantitative", "format": ",", "title":"Life Expectancy"},
-            {"field": "GDP per Capita","type": "quantitative","format": ".2f"}
+            {"field": "GDP per Capita (USD)","type": "quantitative","format": ".2f"}
             ]
         }
         }
