@@ -1,0 +1,80 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 430,
+    "height": 400,
+    "title": { "text": "Healthcare Expense Effectiveness to Life expectancy", "fontSize":15, "fontStyle":""},
+    "data": {
+    "url": "https://raw.githubusercontent.com/rivaldipur/fit3179/main/world_data_2023.csv"
+},
+    "transform": [
+        
+          {"calculate": "datum.Urban_population/datum.Population", "as": "Urban Population (%)"},
+          {"filter": "datum.Out_of_pocket_health_expenditure > 0"},
+          {"filter": "datum.Physicians_per_thousand > 0"},
+          {"calculate": "datum.Physicians_per_thousand / datum.Out_of_pocket_health_expenditure", "as": "Healthcare Cost-Physician Ratio"}
+      ],
+    "selection": {
+        "continent_highlight": {
+            "type": "multi",
+            "fields": ["Continent"],
+            "bind": "legend"
+        }
+    },
+    "mark": {
+        "type":"circle",
+        "size": 60,
+        "opacity": 0.7
+
+    },
+    
+    "encoding": {
+        "y": {
+                "field": "Healthcare Cost-Physician Ratio",
+                "type": "quantitative",
+                "title": "Healthcare Cost-Physician Ratio",
+                "axis": {"tickCount": 2},
+                "scale": { "type": "linear", "zero": false }
+            },
+        "x": {
+                "field": "Life_expectancy",
+                "type": "quantitative",
+                "axis": {"tickCount": 2},
+                "scale": { "type": "linear", "zero": false }
+            },
+        "color": {
+                "field": "Continent",
+                "type": "nominal",
+                "scale": {
+                "domain": [
+                        "North America",
+                        "South America",
+                        "Europe",
+                        "Africa",
+                        "Asia",
+                        "Australia"
+                        ],
+                "range": [
+                        "#e41a1c",
+                        "#984ea3",
+                        "#ff7f00",
+                        "#008170",
+                        "#0802A3",
+                        "#a65628"
+                        ]
+                }
+        },
+        
+        "opacity": {
+            "condition": {"selection": "continent_highlight", "value": 0.9},
+            "value": 0.2},
+            "tooltip": [
+                { "field": "Country", "type": "nominal" },
+                { "field": "Population", "type": "quantitative", "format": "," },
+                { "field": "Life_expectancy", "type": "quantitative", "format": ",", "title": "Life Expectancy" },
+                { "field": "Healthcare Cost-Physician Ratio", "type": "quantitative", "format": ".5" }      ]
+    },
+    "config": {
+        "background": "floralwhite"
+    }
+}
+            

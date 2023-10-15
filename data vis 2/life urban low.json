@@ -2,19 +2,34 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 300,
     "height": 400,
-    "title": { "text": "20 Lowest Life expectancy Rate" },
+    "title": { "text": "Lowest Life expectancy Rates" },
     "data": {
       "url": "https://raw.githubusercontent.com/rivaldipur/fit3179/main/world_data_2023.csv",
       "format": { "type": "csv" }
     },
+
+
+    "params": [
+      {
+        "name": "Top_N",
+        "value": 20,
+        "bind": {
+          "input": "range",
+          "min": 10,
+          "max": 35,
+          "step": 1,
+          "name": "Lowest Life Expectancy: "
+        }
+      }
+    ],
+
     "transform": [
       { 
         
         "window": [{ "op": "rank", "as": "rank" }], 
         "sort": [{ "field": "Life_expectancy", "order": "ascending" }] },
-        {"filter": "datum.rank <= 20"},
+        {"filter": "datum.rank <= Top_N"},
         {"calculate": "datum.Urban_population/datum.Population", "as": "Urban Population (%)"}
-        
     ],
     "mark": "bar",
     
@@ -29,8 +44,8 @@
         "field": "Urban Population (%)",
         "type": "quantitative",
         "scale":{"type": "threshold",
-        "domain": [0.2,0.4, 0.6,0.8,1.0],
-        "range": ["#69FCFF", "#69F5FF", "#4CCFFF", "#5EA9FF","#4583FF","#6456FF"]}
+        "domain": [0.3,0.6,1.0],
+        "range": ["#69FCFF", "#4CCFFF", "#5EA9FF","#6456FF"]}
         
       },
       "tooltip": [
@@ -38,5 +53,9 @@
         { "field": "Population", "type": "quantitative", "format": "," },
         { "field": "Life_expectancy", "type": "quantitative", "format": ",", "title": "Life Expectancy" },
         { "field": "Urban Population (%)", "type": "quantitative", "format": ".2%" }      ]
+    },
+    "config": {
+        "background": "floralwhite"
     }
+    
   }
