@@ -33,7 +33,7 @@ h2 {
 .container{
     display: flex; /* Use flexbox layout */
     align-items: center; 
-    font-family: Verdana, sans-serif;
+    font-family: Helvetica;
 }
 
 .description {
