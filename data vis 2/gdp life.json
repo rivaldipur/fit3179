@@ -68,7 +68,6 @@
     "config": {
         "background": "floralwhite",
         "legend": {
-            "font":"Poppins",
             "titleFontSize":14
         }
     },

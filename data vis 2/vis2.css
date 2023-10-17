@@ -1,6 +1,6 @@
 .page{
     width: 1200px; /* Set the width within the desired range */
-    height: 3100px;
+    height: 3150px;
     background-color:floralwhite; /* Background color for the content */
     margin: 0 auto;
     margin-top: -30px;
@@ -34,9 +34,6 @@ h2 {
 #life_urban_high{
 
     padding-left: 105px;
-}
-#life_urban_low{
-
 }
 
 .container{
