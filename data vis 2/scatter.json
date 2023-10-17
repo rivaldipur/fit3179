@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 430,
+    "width": 330,
     "height": 400,
     "title": { "text": "Healthcare Expense Effectiveness to Life expectancy", "fontSize":15, "fontStyle":""},
     "data": {

@@ -16,50 +16,81 @@
 <body>
 
 
-    <div class="container">
+    <div class="page">
         
 
-        <h1 style="text-align: center; font-family: 'Segoe UI'; padding-top: 40px; padding-bottom: 20px; font-size: 40px;">
-            <span style="color: olivedrab;">Life Expectancies</span> Around The World
+        <h1 style="text-align: center; font-family: Georgia; padding-top: 40px; padding-bottom: 20px; font-size: 45px;">
+            <span style="color: rgb(75, 106, 11);">Life Expectancies</span> Around The World
         </h1>
-        <div class="center-items">
-            <div id = map_life></div>
-            
+        <p id="center-text" style="margin-bottom: 20px;">Every country has a different living circumstances. 
+            <span style="color: rgb(75, 106, 11);">Life expectancy</span> is affected by many varaibles such as health and income. 
+            <strong>This whole visualization shows the relations of such factors on <span style="color: rgb(75, 106, 11);">Life expectancies</span>  around the globe.</strong> </p>
 
+        <div class="center-items" >
+            <div id = map_life style="margin-bottom: 20px;"></div>
         </div>
+
+        <h2 id="section"> Economic, Population and Life Expectancy</h2>
         
         <div class="center-items">
-            <div id="gdp_life">
-            
-            </div>
-
+            <div id="gdp_life"></div>
         </div>
+
+        <p id="center-text">
+            <span style="color: #ff7f00;">Europe</span>, which has the <span style="font-weight: bold;">highest life expectancy</span> on average, also have the <span style="font-weight: bold;">highest GDP per Capita</span>. 
+            Meanwhile, <span style="color: #008170;">Africa</span>  has both <span style="font-weight: bold;">lowest GDP per Capita and Life expectancy</span> on average.</p>
+
+
+
+        
             
 
-     
         
-        
-        <div class="urban_life">
-            <h3 id="urban_section">Life Expectancy and Urban Population</h3>
+        <h2 id="section" style="padding-top: 20px;">Urban Population & Life Expectancy</h2>
+        <div class="container">
             <div id="life_urban_high"></div>
             <div id="life_urban_low"></div>
         </div>
 
+        <p id="center-text">Countries that have <strong>higher % of population living in urban areas</strong> have a <strong>higher life expectancy rate</strong>. 
+            These countries are mainly <strong>well-developed</strong> <span style="color: #ff7f00;">European</span> and <span style="color: #0802A3;">Asian</span> countries, 
+            which shows how development status relates to life expectancy, while, 
+            <span style="color:#008170;">African</span> countries in general shows the opposite.</p>
 
-        <div class="health_life">
 
-            <div id="scatter">
-    
-    
+        <h2 id="section">Health & Life Expectancy</h2>
+       
+        <div class="container">
+            <div id="scatter"></div>
+            <div class="description" style="padding-right: 60px; padding-left: 20px;">
+                <h3 style="">Healthcare Cost & Experts</h3>
+                <p>The <strong>Healthcare Cost-Physician Ratio</strong> measures physician availability and healthcare costs in a population's lifetime.</p>
+                <strong>In general, the higher the better.</strong>
+                <p><span style="color: #ff7f00;">European</span> countries overall have <strong>highest ratio</strong> along with some <span style="color: #0802A3;">Asian</span> countries.</p>
+                <p>Countries in <span style="color: #e41a1c;">North America</span>, <span style="color: #984ea3;">South America</span>, <span style="color: #a65628;">Australia</span>, and most <span style="color: #0802A3;">Asian</span> sit in the middle. </p>
+                <p><span style="color: #008170;">African</span> countries have the <strong>lowest ratio </strong> which also reflects onto the <strong>life expectancies</strong>.</p>
             </div>
 
-            <div id="map">
-
-
-            </div>
-
-        </div>
             
+        </div>
+
+
+
+        <div class="container" style="padding-top: 40px;">
+
+            <div class="description" style="padding-left: 60px; padding-right: 20px;">
+                <h3>Maternal Mortality</h3>
+                <p>High maternal mortality rates are often associated with limited access to healthcare, especially during pregnancy and childbirth.</p>
+                <p>Evidently, countries that have a <strong>lower maternal mortality rate</strong>  have <strong> higher life expectancies</strong> like <span style="color: #a65628;">Australia</span> and many <span style="color: #ff7f00;">European</span> countries</p>
+            </div>
+
+            <div id="map"></div>
+                    
+        </div>
+
+        
+
+    
 
 
     </div>

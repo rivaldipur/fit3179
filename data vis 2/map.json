@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {"text":"Maternal Mortality Ratio in Different Countries","fontSize":15, "subtitle":["In relation to Life Expectancy"],"subtitleFontSize":12},
-    "width": 550,
+    "width": 500,
     "height": 300,
     "projection": {"type": "equalEarth"},
     "data": {
@@ -66,7 +66,7 @@
       "tooltip": [
         {"field": "properties.NAME", "type": "nominal", "title": "Country"},
         {"field": "Life_expectancy", "type": "quantitative"},
-        {"field": "Maternal_mortality_ratio", "type": "quantitative"}
+        {"field": "Maternal_mortality_ratio", "type": "quantitative", "title":"Maternal mortality ratio"}
         
       ]
       }
@@ -77,9 +77,9 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dx": 240,
-        "dy": 65,
-        "fontSize": 15,
+        "dx": 160,
+        "dy": 45,
+        "fontSize": 9,
         "fontStyle": "italic"
       },
       "encoding": {
@@ -92,9 +92,9 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dx": 55,
-        "dy": -150,
-        "fontSize": 15,
+        "dx": 40,
+        "dy": -95,
+        "fontSize": 9,
         "fontStyle": "italic"
       },
       "encoding": {"text": {"value": "Europe"}, "color": {"value": "white"}}
@@ -105,8 +105,8 @@
         "align": "left",
         "baseline": "middle",
         "dx": 13,
-        "dy": -47,
-        "fontSize": 15,
+        "dy": -30,
+        "fontSize": 10,
         "fontStyle": "italic"
       },
       "encoding": {"text": {"value": "Africa"}, "color": {"value": "white"}}
@@ -116,9 +116,9 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dx": -220,
-        "dy": -115,
-        "fontSize": 13,
+        "dx": -145,
+        "dy": -80,
+        "fontSize": 9,
         "fontStyle": "italic"
       },
       "encoding": {
@@ -132,9 +132,9 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dx": -160,
-        "dy":20,
-        "fontSize": 13,
+        "dx": -110,
+        "dy":15,
+        "fontSize": 9,
         "fontStyle": "italic"
       },
       "encoding": {
@@ -147,9 +147,9 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dx": 180,
-        "dy": -95,
-        "fontSize": 15,
+        "dx": 110,
+        "dy": -60,
+        "fontSize": 10,
         "fontStyle": "italic"
       },
       "encoding": {
@@ -164,8 +164,7 @@
         "background": "floralwhite",
 
         "legend": {
-          "titleFontSize": 12,
-
+          "titleFontSize": 10,
           "direction": "horizontal",
           "orient": "bottom",
           "offset":-60
